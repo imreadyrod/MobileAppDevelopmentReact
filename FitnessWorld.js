@@ -14,6 +14,13 @@ const IntenseWorkoutPlans = [
 
 ];
 
+const BegginerPlan = [
+    { id: '1', title: 'Hyrox', description: '50 minutes of Hyrox training', duration: '50 min', imageUrl: 'https://images.unsplash.com/photo-1743993414654-0be2b73a9620?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { id: '2', title: 'Natação', description: 'Aula de natação em uma piscina aquecida', duration: '40 min', imageUrl: 'https://images.unsplash.com/photo-1560090995-01632a28895b?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { id: '3', title: 'Funcional', description: 'Desfrute uma aula de treinamento funcional em grupo', duration: '60 min', imageUrl: 'https://plus.unsplash.com/premium_photo-1664109999449-82f58d6f7cf1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+
+];
+
 export default function FitnessWorld() {
 
   return (
@@ -48,7 +55,8 @@ export default function FitnessWorld() {
         </ScrollView>
       </View>
 
-      {/*Popular Workout Plans Section */}
+
+    {/*Popular Workout Plans Section */}
     <View style={styles.section}>
         <Text style={styles.header}>Popular Workout Plans</Text>
         <FlatList
@@ -73,8 +81,19 @@ export default function FitnessWorld() {
         />
     </View>
 
+    {/* Begginer Plans Section */}
+    <View style={styles.section}>
+    <Text style={styles.header}>Begginer Plans</Text>
+        <FlatList
+          data={BegginerPlan}
+          renderItem={renderWorkout}
+          keyExtractor={(item) => item.id}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+        /> 
+    </View>
 
-      
+
     </ScrollView>
   );
 }
